@@ -1,0 +1,166 @@
+@import url("https://cdn.jsdelivr.net/npm/@xz/fonts@1/serve/inter.min.css");
+@import url("https://fonts.googleapis.com/css2?family=Eczar:wght@400;500;600;700;800&family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
+
+/* * {
+  background: #000 !important;
+  color: #0f0 !important;
+  outline: solid #f00 1px !important;
+} */
+
+:root {
+  --background-color: #fff;
+  --main-text-color: #000000;
+  --other-text-color: #c1c1c1;
+  --post-background: #00000007;
+  --button-background: #5a98f4;
+  --font-Inter: "Inter";
+  --font-Poppins: "Poppins", serif;
+  --font-Ezcar: "Ezcar", sans-serif;
+}
+
+*:focus {
+  outline: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+html,
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: var(--font-Poppins);
+  font-weight: 500;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.branding * {
+  font-size: 28px;
+  font-weight: 700;
+  cursor: pointer;
+  color: var(--main-text-color);
+  text-align: center;
+}
+
+.wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+.col {
+  border-radius: 1em;
+  width: 20%;
+  height: 98%;
+  margin: 0.2rem;
+  position: relative;
+}
+
+.left-column {
+  float: left;
+  display: flex;
+  justify-content: center;
+}
+
+.left-column .profileCard {
+  width: fit-content;
+  padding: 2% 6%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1em;
+  box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.23);
+  position: absolute;
+  bottom: 0;
+}
+
+.profileCard img {
+  margin: 2%;
+  object-fit: cover;
+  height: 3.8rem;
+  border-radius: 100%;
+  aspect-ratio: 1;
+}
+
+.profileCard .info {
+  text-align: center;
+}
+
+.info .bigName {
+  font-weight: 700;
+  font-size: 22px;
+}
+
+.info .smallName {
+  font-weight: 500;
+  color: var(--other-text-color);
+  font-size: 12px;
+}
+
+.right-column {
+  float: right;
+  width: 78%;
+  box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.23);
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.right-column .postNowCard {
+  width: 90%;
+  height: fit-content;
+  border: 1px solid black;
+  border-radius: 1rem;
+  display: flex;
+  justify-content: space-around;
+  margin: 1rem 0.5rem;
+}
+
+.postNowCard .profileCard {
+  width: fit-content;
+  padding: 1% 3%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1em;
+}
+
+.postNowCard input {
+  font-family: var(--font-Poppins);
+  font-weight: 500;
+  font-size: 20px;
+  width: fit-content;
+  flex-grow: 1;
+  border: none;
+}
+
+.postNowCard input:focus,
+.postNowCard input:hover {
+  border-bottom: 3px solid black;
+  transition: 0.05s;
+}
+
+.postNowCard button {
+  color: #fff;
+  background-color: #5a98f4;
+  border: none;
+  padding: 1.2rem 2rem;
+  font-size: 1.2rem;
+  font-size: 22px;
+  cursor: pointer;
+  font-family: var(--font-Poppins);
+  font-weight: 700;
+  border-radius: 1rem;
+}
+
+.postNowCard button:focus,
+.postNowCard button:hover {
+  background-color: #3f74c4;
+  color: #e0efff;
+  transition: 0.35s;
+}
