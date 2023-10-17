@@ -11,7 +11,7 @@
   --background-color: #fff;
   --main-text-color: #000000;
   --other-text-color: #C1C1C1;
-  --register-panel-background: #ffffff10;
+  --register-panel-background: #00000007;
   --button-background: #5A98F4;
   --font-Inter: 'Inter';
   --font-Poppins: 'Poppins', serif;
@@ -22,14 +22,19 @@
   outline: none;
 }
 
+.back {
+  position: absolute;
+  bottom: 0;
+  width: 70ch;
+  height: auto;
+}
+
 body {
   background-color: var(--background-color);
   color: var(--text-color);
   font-family: var(--font-Poppins);
   font-weight: 700;
   overflow: hidden;
-  background-image: url("../assets/register-back.svg");
-  background-repeat: no-repeat;
 }
 
 .branding {
@@ -39,19 +44,20 @@ body {
 
 .container {
   max-width: 40%;
-  width: 100rem;
+  width: 50vw;
+  min-width: 300px;
+  margin: 0 auto;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  margin: 0 auto;
   border: 1px solid #00000000;
   border-radius: 1.5rem;
   box-shadow: 5px 10px 40px #000000;
-  padding: 1rem;
+  padding: 1em;
   align-items: center;
   background-color: var(--register-panel-background);
-  backdrop-filter: blur(0.6rem);
+  backdrop-filter: blur(0.3rem);
 }
 
 .container .upperText {
@@ -79,7 +85,7 @@ input {
   box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.23);
   width: 80%;
   border-radius: 10px;
-  padding: 1.2rem 0.5rem;
+  padding: 1.2rem 2rem;
 }
 
 button {
