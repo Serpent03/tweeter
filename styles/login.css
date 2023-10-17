@@ -1,0 +1,110 @@
+@import url("https://cdn.jsdelivr.net/npm/@xz/fonts@1/serve/inter.min.css");
+@import url('https://fonts.googleapis.com/css2?family=Eczar:wght@400;500;600;700;800&family=Poppins:wght@200;300;400;500;600;700;800&display=swap');
+
+/* * {
+  background: #000 !important;
+  color: #0f0 !important;
+  outline: solid #f00 1px !important;
+} */
+
+:root {
+  --background-color: #fff;
+  --main-text-color: #000000;
+  --other-text-color: #C1C1C1;
+  --login-panel-background: #ffffff10;
+  --button-background: #5A98F4;
+  --font-Inter: 'Inter';
+  --font-Poppins: 'Poppins', serif;
+  --font-Ezcar: 'Ezcar', sans-serif;
+}
+
+*:focus {
+  outline: none;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: var(--font-Poppins);
+  font-weight: 700;
+  overflow: hidden;
+  background-image: url("../assets/login-back.svg");
+  background-repeat: no-repeat;
+}
+
+.branding {
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.container {
+  max-width: 40%;
+  width: 100rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0 auto;
+  border: 1px solid #00000000;
+  border-radius: 1.5rem;
+  box-shadow: 5px 10px 40px #000000;
+  padding: 1rem;
+  align-items: center;
+  background-color: var(--login-panel-background);
+  backdrop-filter: blur(0.6rem);
+}
+
+.container .upperText {
+  text-align: center;
+  padding: 2.5rem;
+}
+
+.upperText .upper {
+  font-size: 28px;
+  padding-bottom: 1rem;
+}
+
+.upperText .lower {
+  font-size: 17px;
+  color: var(--other-text-color);
+}
+
+input {
+  display: block;
+  font-family: var(--font-Poppins);
+  font-weight: 500;
+  font-size: 18px;
+  margin: 0.2rem auto;
+  border: none;
+  box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.23);
+  width: 80%;
+  border-radius: 10px;
+  padding: 1.2rem 0.5rem;
+}
+
+button {
+  margin: 0 auto;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  display: block;
+  color: #fff;
+  background-color: #5A98F4;
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0px 0px 11px 6px rgba(41, 41, 41, 0.35);
+  padding: 1.2rem 2rem; 
+  font-size: 1.2rem; 
+  font-size: 20px;
+  cursor: pointer;
+  font-family: var(--font-Poppins);
+  font-weight: 500;
+}
+
+button:focus,
+button:hover {
+  background-color: #3f74c4;
+  color: #e0efff;
+  transition: 0.35s;
+}
+
+
