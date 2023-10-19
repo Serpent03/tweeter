@@ -88,6 +88,7 @@ body {
 
 .profileCard .info {
   text-align: center;
+  margin: 5%;
 }
 
 .info .bigName {
@@ -107,6 +108,7 @@ body {
   box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.23);
   display: flex;
   justify-content: center;
+  align-items: flex-start;
   flex-direction: row;
   flex-wrap: wrap;
 }
@@ -114,11 +116,12 @@ body {
 .right-column .postNowCard {
   width: 90%;
   height: fit-content;
-  border: 1px solid black;
+  border: none;
   border-radius: 1rem;
   display: flex;
   justify-content: space-around;
   margin: 1rem 0.5rem;
+  box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.23);
 }
 
 .postNowCard .profileCard {
@@ -163,4 +166,53 @@ body {
   background-color: #3f74c4;
   color: #e0efff;
   transition: 0.35s;
+}
+
+.right-column .post-wrapper {
+  border-radius: 1rem;
+  /* border: 1px solid black; */
+  padding: 0 4%;
+  height: 80%;
+  flex-grow: 1;
+  margin: 0 2%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  display: flex;
+  overflow-y: scroll;
+}
+
+.post-wrapper .userPost {
+  border-radius: 1rem;
+  width: 90%;
+  margin: 1ch 0;
+  padding: 2%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.23);
+  height: fit-content;
+}
+
+.userPost .profileCard {
+  justify-content: center;
+  width: fit-content;
+  position: inherit;
+  margin: 0.5rem 1rem 0 0;
+  border-radius: 1rem;
+  padding: 1%;
+  bottom: 0;
+}
+
+::-webkit-scrollbar {
+  width: 0.5em;
+}
+
+::-webkit-scrollbar-track {
+  background-color: rgba(0, 0, 0, 0);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(169, 169, 169, 1);
+  border-radius: 1rem;
 }
