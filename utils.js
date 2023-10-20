@@ -3,6 +3,10 @@ const pfps = [
   "https://www.livemint.com/lm-img/img/2023/09/12/600x338/Putin_1694509884384_1694530249154.jpg",
   "https://www.agri-pulse.com/ext/resources/2022/04/04/Kees_Huizinga.jpg?1649269915",
   "https://upload.wikimedia.org/wikipedia/commons/c/ca/Osama_bin_Laden_portrait.jpg",
+  "https://i.scdn.co/image/ab6761610000e5eb5ade2bbfc5fb33914d5ed14f",
+  "https://i.kym-cdn.com/entries/icons/medium/000/021/950/Pink_guy.png",
+  "https://sm.ign.com/t/ign_in/screenshot/default/mai-sakurajima_1wva.h928@3:4.jpg",
+  "https://m.media-amazon.com/images/I/41RJd5vJZ8L._UXNaN_FMjpg_QL85_.jpg",
 ];
 
 function User(props) {
