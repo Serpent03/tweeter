@@ -210,7 +210,7 @@ body {
 
 .userPost .text {
   font-size: 90%;
-  margin-right: auto; 
+  margin-right: 10px; 
   margin-left: 0;
   /*
     margin-right: auto is responsible for pushing the element all the way to the left as far as it can go when using flex
