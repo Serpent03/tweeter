@@ -3,12 +3,12 @@ const pfps = [
   "https://www.livemint.com/lm-img/img/2023/09/12/600x338/Putin_1694509884384_1694530249154.jpg",
   "https://www.agri-pulse.com/ext/resources/2022/04/04/Kees_Huizinga.jpg?1649269915",
   "https://upload.wikimedia.org/wikipedia/commons/c/ca/Osama_bin_Laden_portrait.jpg",
-]
+];
 
 function User(props) {
   this.username = props.username;
   this.UUID = props.UUID || Math.floor(Math.random() * 10000000);
-  this.pfp = props.pfp || pfps[Math.floor(Math.random * pfps.length)];
+  this.pfp = pfps[Math.floor(Math.random() * pfps.length)];
   this.password = props.password;
 }
 
@@ -51,33 +51,14 @@ function createNewUser(props) {
 function createNewPost(message, injector) {
   const user = JSON.parse(sessionStorage.getItem("currentUser"));
   const post = new UserPost({
-    "username": user.username,
-    "pfp": user.pfp,
-    "UUID": user.UUID,
-    "message": message,
-    "postID": Math.floor(Math.random() * 10000000),
+    username: user.username,
+    pfp: user.pfp,
+    UUID: user.UUID,
+    message: message,
+    postID: Math.floor(Math.random() * 10000000),
   });
-  const newPost = `
-  <div class="userPost">
-    <div id="pfCard" class="profileCard">
-      <img
-        id="pfp"
-        src="${post.pfp}"
-        alt=""
-        class="pfp"
-      />
-      <div class="info">
-        <div id="publicName" class="bigName">${post.username}</div>
-        <div id="privateName" class="smallName">@${post.UUID}</div>
-      </div>
-    </div>
-    <div class="text">
-      ${post.message}
-    </div>
-  </div>
-`;
-  // writePosts(post);
-  injector.innerHTML += newPost;
+  writePosts(post);
+  redirectToPage("home");
 }
 
 function readPosts() {
@@ -85,22 +66,22 @@ function readPosts() {
   var finalPosts;
   if (existingPosts.length > 1) {
     finalPosts = JSON.parse(existingPosts);
-    // return finalPosts;
+    return finalPosts;
   } else {
-    finalPosts = null
+    finalPosts = null;
   }
-  console.log(finalPosts);
+  console.log(`finalPosts: ${finalPosts}`);
   return finalPosts;
 }
 
 function writePosts(newPost) {
   const existingPosts = readPosts();
   var finalPosts;
-  if (!existingPosts) {
+  if (existingPosts == null) {
     finalPosts = JSON.stringify([newPost]);
   } else {
     existingPosts.push(newPost);
-    finalPosts = existingPosts;
+    finalPosts = JSON.stringify(existingPosts);
   }
   localStorage.setItem("posts", finalPosts);
 }
@@ -111,10 +92,9 @@ function logInUser(username, password) {
     alert("Fill in the form correctly!");
     return;
   }
-  if (getFromLocalStorage("users") == "") {
+  if (getFromLocalStorage("users") == null) {
     alert("DB empty! Please register first.");
     return;
-
   }
   const existingUsers = getFromLocalStorage("users");
   let isUserRegistered = false;
@@ -142,13 +122,37 @@ function logInUser(username, password) {
 function contentPopulation(injector) {
   const pfCards = document.querySelectorAll("[id='static-pfCard']");
   const currentUser = JSON.parse(sessionStorage.getItem("currentUser"));
+  console.log(currentUser);
   for (var i = 0; i < pfCards.length; i++) {
     let currentPfCard = pfCards[i];
     currentPfCard.children[0].src = currentUser.pfp;
     currentPfCard.children[1].children[0].innerText = currentUser.username;
     currentPfCard.children[1].children[1].innerText = `@${currentUser.UUID}`;
   }
-  readPosts();
+  const returnedPosts = readPosts();
+  returnedPosts?.forEach((post) => {
+    const newPost = `
+    <div class="userPost">
+      <div id="pfCard" class="profileCard">
+        <img
+          id="pfp"
+          src="${post.pfp}"
+          alt=""
+          class="pfp"
+        />
+        <div class="info">
+          <div id="publicName" class="bigName">${post.username}</div>
+          <div id="privateName" class="smallName">@${post.UUID}</div>
+        </div>
+      </div>
+      <div class="text">
+        ${post.message}
+      </div>
+    </div>
+`;
+    injector.innerHTML += newPost;
+  });
+  // use this to populate the content
 }
 
 function redirectToPage(param) {
@@ -156,15 +160,19 @@ function redirectToPage(param) {
 }
 
 function getFromLocalStorage(key) {
-  return JSON.parse(localStorage.getItem(key));
+  console.log(JSON.parse(localStorage.getItem("users")));
+  try {
+    return JSON.parse(localStorage.getItem(key))
+  } catch {
+    return null;
+  }
 }
 
-function pushToLocalStorage(data, type = undefined) {
-
-}
-
-function pushToSessionStorage() {
-
-}
-
-export { User, createNewPost, createNewUser, logInUser, redirectToPage, contentPopulation };
+export {
+  User,
+  createNewPost,
+  createNewUser,
+  logInUser,
+  redirectToPage,
+  contentPopulation,
+};
