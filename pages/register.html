@@ -6,8 +6,11 @@
     <title>Register</title>
     <link rel="stylesheet" href="../styles/register.css" />
     <script type="module" src="../index.js" defer></script>
+    <script
+      src="https://requirejs.org/docs/release/2.3.5/minified/require.js"
+      defer
+    ></script>
   </head>
-
   <body>
     <img src="../assets/register-back.svg" alt="" class="back" />
 
@@ -21,15 +24,15 @@
 
       <div class="inputFields">
         <form>
-          <input type="text" name="name" id="name" placeholder="Username" />
+          <input id="username" type="text" name="name" id="name" placeholder="Username" />
           <br />
-          <input type="password" name="pw" id="pw" placeholder="Password" />
+          <input id="password" type="password" name="pw" id="pw" placeholder="Password" />
           <br />
         </form>
       </div>
 
-      <button>
-        <a href="../pages/login.html">Register</a>
+      <button id="register-button">
+        Register
       </button>
 
       <div class="redirect">

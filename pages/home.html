@@ -12,13 +12,16 @@
     <link rel="stylesheet" href="../styles/home.css" />
     <title>Document</title>
     <script type="module" src="../index.js" defer></script>
+    <script
+      src="https://requirejs.org/docs/release/2.3.5/minified/require.js"
+      defer
+    ></script>
   </head>
-
   <body>
     <div class="wrapper">
       <div class="left-column col">
         <div class="branding"><a href="">Tweeter</a></div>
-        <div id="pfCard" class="profileCard">
+        <div id="static-pfCard" class="profileCard">
           <img
             id="pfp"
             src="https://preview.redd.it/i-was-doing-a-pfp-for-myself-but-i-had-to-share-v0-wc9btluha7ha1.png?width=735&format=png&auto=webp&s=e46f34ac3eb6736c303072aa9136982fbf61e95e"
@@ -26,15 +29,15 @@
             class="pfp"
           />
           <div class="info">
-            <div id="publicName" class="bigName">Itsuki</div>
-            <div id="privateName" class="smallName">@itsuki</div>
+            <div id="username" class="bigName">Itsuki</div>
+            <div id="UUID" class="smallName">@itsuki</div>
           </div>
         </div>
       </div>
 
       <div class="right-column col">
         <div class="postNowCard">
-          <div id="pfCard" class="profileCard">
+          <div id="static-pfCard" class="profileCard">
             <img
               id="pfp"
               src="https://preview.redd.it/i-was-doing-a-pfp-for-myself-but-i-had-to-share-v0-wc9btluha7ha1.png?width=735&format=png&auto=webp&s=e46f34ac3eb6736c303072aa9136982fbf61e95e"
@@ -42,8 +45,8 @@
               class="pfp"
             />
             <div class="info">
-              <div id="publicName" class="bigName">Itsuki</div>
-              <div id="privateName" class="smallName">@itsuki</div>
+              <div id="username" class="bigName">Itsuki</div>
+              <div id="UUID" class="smallName">@itsuki</div>
             </div>
           </div>
           <input type="text" placeholder="What's on your mind today?" />
