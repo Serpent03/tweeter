@@ -57,7 +57,7 @@ function createNewPost(message, injector) {
     message: message,
     postID: Math.floor(Math.random() * 10000000),
   });
-  writePosts(post);
+  post.message.length > 1 && writePosts(post);
   redirectToPage("home");
 }
 
@@ -162,7 +162,7 @@ function redirectToPage(param) {
 function getFromLocalStorage(key) {
   console.log(JSON.parse(localStorage.getItem("users")));
   try {
-    return JSON.parse(localStorage.getItem(key))
+    return JSON.parse(localStorage.getItem(key));
   } catch {
     return null;
   }
