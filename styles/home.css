@@ -10,7 +10,7 @@
 :root {
   --background-color: #fff;
   --main-text-color: #000000;
-  --other-text-color: #c1c1c1;
+  --other-text-color: #636363;
   --post-background: #00000007;
   --button-background: #5a98f4;
   --font-Inter: "Inter";
@@ -204,18 +204,38 @@ body {
   height: fit-content;
 }
 
+.post-wrapper .userPost * {
+  margin: 2%;
+}
+
 .userPost .text {
-  font-size: min(1.8ch,20px);
+  font-size: 90%;
+  margin-right: auto; 
+  margin-left: 0;
+  /*
+    margin-right: auto is responsible for pushing the element all the way to the left as far as it can go when using flex
+  */
 }
 
 .userPost .profileCard {
-  justify-content: center;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
   width: fit-content;
   position: inherit;
-  margin: 0.5rem 1rem 0 0;
   border-radius: 1rem;
-  padding: 1%;
+  padding: 10px;
   bottom: 0;
+}
+
+.userPost .profileCard img {
+  padding: 0;
+  margin: 10px;
+  margin-left: 0;
+}
+
+.userPost .profileCard .bigName {
+  font-size: min(12px, 100%);
 }
 
 ::-webkit-scrollbar {
