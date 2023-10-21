@@ -42,13 +42,20 @@ homePageInjection && // checking if the current page is on the home feed page
       redirectToPage("login");
     }
     contentPopulation(homePageInjection);
-    console.log(sessionStorage);
+    // after a redirect back to 'home' by the createNewPost() function,
+    // we will reload the page in such a way that we scroll to the latest post automatically,
+    // giving a better UX
+    const allPosts = document.querySelectorAll(".userPost");
+    const latestPost = allPosts[allPosts.length - 1];
+    console.log(latestPost);
+    latestPost.scrollIntoView(false);
   })();
 
-postSubmitButton && postSubmitButton.addEventListener("click", () => {
-  const postTextData = document.getElementById("post-text-data").value;
-  createNewPost(postTextData, homePageInjection);
-});
+postSubmitButton &&
+  postSubmitButton.addEventListener("click", () => {
+    const postTextData = document.getElementById("post-text-data").value;
+    createNewPost(postTextData, homePageInjection);
+  });
 
 // homePageInjection &&
 //   createNewPost(
