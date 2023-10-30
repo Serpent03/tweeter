@@ -4,9 +4,9 @@
 
 import {
   createNewPost,
-  redirectToPage,
-  logInUser,
   createNewUser,
+  logInUser,
+  redirectToPage,
   contentPopulation,
 } from "./utils.js";
 
@@ -58,6 +58,10 @@ postSubmitButton &&
     const postTextData = document.getElementById("post-text-data").value;
     createNewPost(postTextData, homePageInjection);
   });
+
+// TODO:
+// post deletion(through unique POST ID?) -> the procedure is still the same: utilize 
+// readPosts(), make changes, and then reupdate it as necessary
 
 // check if any new posts have been made(i.e, a change in the localStorage)
 // and automatically refresh the page

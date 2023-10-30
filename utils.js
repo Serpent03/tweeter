@@ -24,6 +24,7 @@ function UserPost(props) {
   this.message = props.message;
 }
 
+// wrapper for creating a new user
 function createNewUser(props) {
   const newUser = new User(props);
   if (newUser.username == "" || newUser.password == "") {
@@ -52,6 +53,7 @@ function createNewUser(props) {
   redirectToPage("login");
 }
 
+// wrapper function for creating new posts
 function createNewPost(message, injector) {
   const user = JSON.parse(sessionStorage.getItem("currentUser"));
   const post = new UserPost({
@@ -61,10 +63,13 @@ function createNewPost(message, injector) {
     message: message,
     postID: Math.floor(Math.random() * 10000000),
   });
+  // don't write empty posts into the localStorage
   post.message.length > 1 && writePosts(post);
   redirectToPage("home");
 }
 
+// read all posts stored in the localStorage
+// returns: (posts.length > 1) ? posts : null
 function readPosts() {
   const existingPosts = localStorage.getItem("posts");
   var finalPosts;
@@ -78,6 +83,8 @@ function readPosts() {
   return finalPosts;
 }
 
+// write a new post to the localStorage
+// returns: void
 function writePosts(newPost) {
   const existingPosts = readPosts();
   var finalPosts;
@@ -90,6 +97,8 @@ function writePosts(newPost) {
   localStorage.setItem("posts", finalPosts);
 }
 
+// log in the user by checking relevant credentials and form details
+// returns: void
 function logInUser(username, password) {
   // set to sessionStorage here
   if (username == "" || password == "") {
@@ -123,6 +132,8 @@ function logInUser(username, password) {
   }
 }
 
+// read all the posts from the localStorage, and insert into the HTML
+// returns: void
 function contentPopulation(injector) {
   const pfCards = document.querySelectorAll("[id='static-pfCard']");
   const currentUser = JSON.parse(sessionStorage.getItem("currentUser"));
@@ -159,10 +170,14 @@ function contentPopulation(injector) {
   // use this to populate the content
 }
 
+// redirect to mentioned page
+// returns: void
 function redirectToPage(param) {
   window.location = `../pages/${param}.html`;
 }
 
+// get item from localStorage
+// returns: (posts can be JSON) ? json.parse(posts) : null
 function getFromLocalStorage(key) {
   console.log(JSON.parse(localStorage.getItem("users")));
   try {
@@ -173,7 +188,6 @@ function getFromLocalStorage(key) {
 }
 
 export {
-  User,
   createNewPost,
   createNewUser,
   logInUser,
